@@ -1,0 +1,135 @@
+[INFO] Scanning for projects...
+[INFO] Reactor build order: 
+[INFO]   Unnamed - org.esupportail.jefyco:esup-portlet-jefyco:pom:0.0.1-SNAPSHOT
+[INFO]   Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-utils:jar:0.0.1-SNAPSHOT
+[INFO]   Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-domain-beans:jar:0.0.1-SNAPSHOT
+[INFO]   Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-domain-services:jar:0.0.1-SNAPSHOT
+[INFO]   Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-web-springmvc-portlet:war:0.0.1-SNAPSHOT
+[INFO] Searching repository for plugin with prefix: 'dependency'.
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Unnamed - org.esupportail.jefyco:esup-portlet-jefyco:pom:0.0.1-SNAPSHOT
+[INFO]    task-segment: [dependency:analyze]
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing dependency:analyze
+[INFO] No goals needed for project - skipping
+[INFO] [dependency:analyze {execution: default-cli}]
+[INFO] Skipping pom project
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-utils:jar:0.0.1-SNAPSHOT
+[INFO]    task-segment: [dependency:analyze]
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing dependency:analyze
+[INFO] [resources:resources {execution: default-resources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/esup/esup-portlet-jefyco/esup-portlet-jefyco-utils/src/main/resources
+[INFO] [compiler:compile {execution: default-compile}]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [resources:testResources {execution: default-testResources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/esup/esup-portlet-jefyco/esup-portlet-jefyco-utils/src/test/resources
+[INFO] [compiler:testCompile {execution: default-testCompile}]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [dependency:analyze {execution: default-cli}]
+[WARNING] Unused declared dependencies found:
+[WARNING]    com.googlecode.json-simple:json-simple:jar:1.1.1:compile
+[WARNING]    javax.inject:javax.inject:jar:1:compile
+[WARNING]    org.springframework:spring-oxm:jar:3.0.6.RELEASE:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-domain-beans:jar:0.0.1-SNAPSHOT
+[INFO]    task-segment: [dependency:analyze]
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing dependency:analyze
+[INFO] [resources:resources {execution: default-resources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/esup/esup-portlet-jefyco/esup-portlet-jefyco-domain-beans/src/main/resources
+[INFO] [compiler:compile {execution: default-compile}]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [resources:testResources {execution: default-testResources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/esup/esup-portlet-jefyco/esup-portlet-jefyco-domain-beans/src/test/resources
+[INFO] [compiler:testCompile {execution: default-testCompile}]
+[INFO] No sources to compile
+[INFO] [dependency:analyze {execution: default-cli}]
+[WARNING] Unused declared dependencies found:
+[WARNING]    com.googlecode.json-simple:json-simple:jar:1.1.1:compile
+[WARNING]    org.esupportail:esup-commons2-core:jar:0.3.2:compile
+[WARNING]    javax.inject:javax.inject:jar:1:compile
+[WARNING]    org.springframework:spring-oxm:jar:3.0.6.RELEASE:compile
+[WARNING]    org.springframework:spring-core:jar:3.2.4.RELEASE:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-domain-services:jar:0.0.1-SNAPSHOT
+[INFO]    task-segment: [dependency:analyze]
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing dependency:analyze
+[INFO] [resources:resources {execution: default-resources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] [compiler:compile {execution: default-compile}]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [resources:testResources {execution: default-testResources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/esup/esup-portlet-jefyco/esup-portlet-jefyco-domain-services/src/test/resources
+[INFO] [compiler:testCompile {execution: default-testCompile}]
+[INFO] No sources to compile
+[INFO] [dependency:analyze {execution: default-cli}]
+[WARNING] Used undeclared dependencies found:
+[WARNING]    org.esupportail:esup-commons2-core:jar:0.3.2:compile
+[WARNING]    org.springframework:spring-web:jar:3.2.4.RELEASE:compile
+[WARNING]    org.springframework:spring-beans:jar:3.0.6.RELEASE:compile
+[WARNING]    org.esupportail:esup-commons2-web:jar:0.3.2:compile
+[WARNING]    org.springframework:spring-core:jar:3.2.4.RELEASE:compile
+[WARNING] Unused declared dependencies found:
+[WARNING]    com.googlecode.json-simple:json-simple:jar:1.1.1:compile
+[WARNING]    org.springframework:spring-oxm:jar:3.0.6.RELEASE:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-web-springmvc-portlet:war:0.0.1-SNAPSHOT
+[INFO]    task-segment: [dependency:analyze]
+[INFO] ------------------------------------------------------------------------
+[INFO] Preparing dependency:analyze
+[INFO] [resources:resources {execution: default-resources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] [compiler:compile {execution: default-compile}]
+[INFO] Nothing to compile - all classes are up to date
+[INFO] [resources:testResources {execution: default-testResources}]
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/esup/esup-portlet-jefyco/esup-portlet-jefyco-web-springmvc-portlet/src/test/resources
+[INFO] [compiler:testCompile {execution: default-testCompile}]
+[INFO] No sources to compile
+[INFO] [dependency:analyze {execution: default-cli}]
+[WARNING] Used undeclared dependencies found:
+[WARNING]    org.springframework:spring-web:jar:3.0.6.RELEASE:compile
+[WARNING]    org.esupportail:esup-commons2-core:jar:0.3.2:compile
+[WARNING]    org.esupportail.jefyco:esup-portlet-jefyco-domain-beans:jar:0.0.1-SNAPSHOT:compile
+[WARNING]    org.springframework:spring-context:jar:3.0.6.RELEASE:compile
+[WARNING]    org.springframework:spring-beans:jar:3.0.6.RELEASE:compile
+[WARNING]    org.springframework:jsr168forwardport.org.springframework.web.portlet:jar:2.5.6.SEC01:compile
+[WARNING] Unused declared dependencies found:
+[WARNING]    com.googlecode.json-simple:json-simple:jar:1.1.1:compile
+[WARNING]    org.apache.pluto:pluto-taglib:jar:1.1.3:provided
+[WARNING]    javax.inject:javax.inject:jar:1:compile
+[WARNING]    org.easymock:easymock:jar:2.3:test
+[WARNING]    org.springframework:spring-oxm:jar:3.0.6.RELEASE:compile
+[WARNING]    org.esupportail:esup-commons2-web:jar:0.3.2:compile
+[WARNING]    taglibs:standard:jar:1.1.2:compile
+[WARNING]    javax.servlet:servlet-api:jar:2.4:provided
+[WARNING]    org.esupportail:esup-commons2-springmvc-portlet:pom:0.3.2:compile
+[WARNING]    org.codehaus.jackson:jackson-mapper-asl:jar:1.5.3:compile
+[INFO] 
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] ------------------------------------------------------------------------
+[INFO] Unnamed - org.esupportail.jefyco:esup-portlet-jefyco:pom:0.0.1-SNAPSHOT  SUCCESS [1.630s]
+[INFO] Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-utils:jar:0.0.1-SNAPSHOT  SUCCESS [0.645s]
+[INFO] Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-domain-beans:jar:0.0.1-SNAPSHOT  SUCCESS [0.667s]
+[INFO] Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-domain-services:jar:0.0.1-SNAPSHOT  SUCCESS [0.755s]
+[INFO] Unnamed - org.esupportail.jefyco:esup-portlet-jefyco-web-springmvc-portlet:war:0.0.1-SNAPSHOT  SUCCESS [0.896s]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5 seconds
+[INFO] Finished at: Wed Dec 04 16:26:06 CET 2013
+[INFO] Final Memory: 25M/60M
+[INFO] ------------------------------------------------------------------------

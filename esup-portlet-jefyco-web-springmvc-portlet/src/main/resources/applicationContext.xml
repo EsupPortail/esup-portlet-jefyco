@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+		
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:defaults.properties</value>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+    <bean id="casService"
+     class="org.esupportail.jefyco.portlet.services.auth.PortletCasServiceImpl" >
+	    <property name="service" value="${public.host}" >
+	    </property>
+	    <property name="casValidateUrl" value="${cas.server}/proxyValidate" >
+	    </property>
+	    <property name="proxyCallbackUrl" value="${public.host}/CasProxyServlet" >
+	    </property>
+</bean>
+
+<bean id="AuthenticationFilter"
+		class="org.jasig.cas.client.authentication.AuthenticationFilter">
+		<property name="casServerLoginUrl" value="${cas.server}/login">
+		</property>
+		<property name="serverName" value="${public.host}">
+		</property>
+	</bean>
+
+	<!-- Proxy Ticket Validator -->
+	<bean id="proxyTicketValidator" class="org.jasig.cas.client.validation.Cas20ProxyTicketValidator">
+		<constructor-arg value="${cas.server}" />
+		<property name="acceptAnyProxy" value="true" />
+		<property name="proxyCallbackUrl" value="${cas.proxy.callback.url}" />
+		<property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage" />
+	</bean>
+	
+	<!-- CAS Proxy Filter -->
+	<bean id="casProxyFilter" class="org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter">
+		<property name="service" value="${cas.service.url}" />
+		<property name="proxyReceptorUrl" value="${cas.callback.uri}" />
+		<property name="ticketValidator" ref="proxyTicketValidator" />
+		<property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage" />	
+	</bean>
+	
+	
+	
+	<!-- Proxy Granting Ticket Storage -->
+	<bean id="proxyGrantingTicketStorage" class="org.jasig.cas.client.proxy.ProxyGrantingTicketStorageImpl" />
+
+    <!--
+     | Message source for this context, loaded from localized "messages_xx" files
+     +-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>                                     
+    </bean>
+    
+    <bean id="webController"
+		class="org.esupportail.jefyco.portlet.web.springmvc.WebController"
+		parent="abastractExceptionController" scope="session">
+        <property name="domainService" ref="domainService" />
+        <property name="ticketValidator" ref="proxyTicketValidator" />        
+	</bean>
+	
+		
+	<bean id="abastractExceptionController"
+		class="org.esupportail.jefyco.portlet.web.springmvc.AbastractExceptionController"
+		scope="session">
+        <property name="domainService" ref="domainService" />
+	</bean>
+	
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+<property name="messageConverters">
+	<list>
+	<ref bean="marshallingConverter" />
+	<ref bean="jsonConverter" />
+	</list>
+</property>
+</bean>
+
+<bean id="marshallingConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+<constructor-arg ref="jaxbMarshaller" />
+    <property name="supportedMediaTypes" value="application/xml"/>
+      </bean>
+
+      <bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+      
+    <property name="classesToBeBound">
+	  <list>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.Exercice</value>
+	    <value>org.esupportail.jefyco.portlet.domain.ExercicesList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.Etablissement</value>
+	    <value>org.esupportail.jefyco.portlet.domain.EtablissementsList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.UB</value>
+	    <value>org.esupportail.jefyco.portlet.domain.UBList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.CR</value>
+	    <value>org.esupportail.jefyco.portlet.domain.CRList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.SousCR</value>
+	    <value>org.esupportail.jefyco.portlet.domain.SousCRList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.Convention</value>
+	    <value>org.esupportail.jefyco.portlet.domain.ConventionsList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.DepenseDetails</value>
+	    <value>org.esupportail.jefyco.portlet.domain.DepenseDetailsList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.DepenseMandats</value>
+	    <value>org.esupportail.jefyco.portlet.domain.DepenseMandatsList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.DepenseSynthese</value>
+	    <value>org.esupportail.jefyco.portlet.domain.DepenseSyntheseList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.RecetteDetails</value>
+	    <value>org.esupportail.jefyco.portlet.domain.RecetteDetailsList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.RecetteSynthese</value>
+	    <value>org.esupportail.jefyco.portlet.domain.RecetteSyntheseList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.RecetteTitres</value>
+	    <value>org.esupportail.jefyco.portlet.domain.RecetteTitresList</value>
+	    <value>org.esupportail.jefyco.portlet.domain.beans.ResteEngage</value>
+	    <value>org.esupportail.jefyco.portlet.domain.ResteEngageList</value>
+	  </list>
+    </property>
+    
+</bean>
+
+<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+   <property name="messageConverters">
+       <list>
+           <ref bean="jsonConverter" />
+   <ref bean="marshallingConverter" />
+       </list>
+   </property>
+</bean>
+
+<bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+   <property name="supportedMediaTypes" value="application/json" />
+</bean>
+
+    <!-- 
+     | Standard JSP view resolver
+     +-->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="cache" value="true"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    
+        <bean name="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+    
+
+    <bean id="requiredAnnotationBeanPostProcessor" class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+
+	<import resource="classpath*:META-INF/esup-portlet-jefyco-domain-services-auth.xml" />
+	<import resource="classpath*:META-INF/esup-portlet-jefyco-domain-services-domain.xml" />
+
+</beans>

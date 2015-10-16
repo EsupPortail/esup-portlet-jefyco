@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>esup-portlet-jefyco</artifactId>
+		<groupId>org.esupportail.jefyco</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>esup-portlet-jefyco-domain-services</artifactId>
+	<description>Domain Interface and Impl</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.esupportail</groupId>
+			<artifactId>esup-commons2-auth</artifactId>
+			<version>${esupcommons.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.esupportail.jefyco</groupId>
+			<artifactId>esup-portlet-jefyco-domain-beans</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+</project>

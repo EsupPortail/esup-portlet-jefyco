@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+    
+    <!-- Nom de notre Portlet -->
+    <display-name>Portlet Spring</display-name>
+    
+    <!-- Fichier de configuration Spring pour l'application web -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/applicationContext.xml</param-value>
+    </context-param>
+    
+    <!-- Listener pour le lancement de Spring au dÃ©marrage du contexte -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>esup-portlet-jefyco</servlet-name>
+        <display-name>esup-portlet-jefyco Wrapper</display-name>
+        <description>Automated generated Portlet Wrapper</description>
+        <servlet-class>org.apache.pluto.core.PortletServlet</servlet-class>
+        <init-param>
+            <param-name>portlet-class</param-name>
+            <param-value>org.springframework.web.portlet.DispatcherPortlet</param-value>
+        </init-param>
+        <init-param>
+            <param-name>portlet-guid</param-name>
+            <param-value>esup-portlet-jefyco.esup-portlet-jefyco</param-value>
+        </init-param>
+    </servlet>
+    
+    <!-- Servlet de rendu -->
+    <servlet>
+        <servlet-name>ViewRendererServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>esup-portlet-jefyco</servlet-name>
+        <url-pattern>/esup-portlet-jefyco/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Mapping du rendu -->
+    <servlet-mapping>
+        <servlet-name>ViewRendererServlet</servlet-name>
+        <url-pattern>/WEB-INF/servlet/view</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+		<servlet-name>esup-portlet-jefyco</servlet-name>
+		<url-pattern>/CasProxyReceptor/*</url-pattern>
+	</servlet-mapping>
+ </web-app>
